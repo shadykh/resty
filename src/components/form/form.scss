@@ -1,0 +1,21 @@
+$font-family:    'Pangolin', cursive;
+
+
+form {
+    
+    font: $font-family;
+    text-align: center;
+    width: 50%;
+    margin: 28px auto;
+    justify-content: space-around;
+    text-align: center;
+
+}
+
+#urlMethod{
+    width: 50%;
+    margin: 28px auto;
+    justify-content: space-around;
+    text-align: center;
+    border: 2px solid gray;
+}
