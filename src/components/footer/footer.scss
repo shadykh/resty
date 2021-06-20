@@ -1,0 +1,14 @@
+$font-family:    Helvetica, sans-serif;
+$color: rgb(102, 102, 102);
+$color-font : aliceblue;
+
+footer {
+    
+    color: $color-font;
+    background-color: $color;
+    font: $font-family;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
