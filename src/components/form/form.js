@@ -2,52 +2,72 @@ import React from 'react';
 import './form.scss'
 
 class Form extends React.Component {
+
   constructor(props) {
+
     super(props);
     this.state = {
+
       url: '',
-      method: ''
+      method: 'GET'
+
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleButton = this.handleButton.bind(this);
   }
 
-  handleChange(event) {
-    let url = event.target.value ;
+  handleChange = e => {
+    let url = e.target.value;
     this.setState({ url });
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    let raw = await fetch(this.state.url);
+    console.log('-------------raw--------------------');
+    console.log(raw);
+    console.log('--------------raw-------------------');
+    let data = await raw.json();
+    let count = data.count;
+
+    console.log('-------------data--------------------');
+    console.log(data);
+    console.log('--------------data-------------------');
+    let results = data.results;
+    this.props.handler(data);
+
   }
 
-  handleButton(event) {
-    let method = event.target.value
-    this.setState({ method});
+  handleButton = e => {
+    e.preventDefault();
+    let method = e.target.value
+    this.setState({ method });
   }
 
   render() {
     return (
       <div>
-        <form >
+        <form onSubmit={this.handleSubmit}>
           <label>
             URL:
             <input type="text" placeholder='Please enter the URL !!' required onChange={this.handleChange} />
           </label>
-          <button type="submit" value="Submit" onClick={this.handleSubmit} > Submit </button>
+          <button id='button' type="submit"  > Go! </button>
           <div>
-          <input type="button" value="GET" onClick={this.handleButton} />
-          <input type="button" value="POST" onClick={this.handleButton} />
-          <input type="button" value="PUT" onClick={this.handleButton} />
-          <input type="button" value="DELETE" onClick={this.handleButton} />
+            <label for='GET'>GET</label>
+            <input id='button' name='GET' type="radio" value="GET" checked onChange={this.handleButton} />
+            <label for='POST'>POST</label>
+            <input id='button' name='POST' type="radio" value="POST" onChange={this.handleButton} />
+            <label for='PUT'>PUT</label>
+            <input id='button' name='PUT' type="radio" value="PUT" onChange={this.handleButton} />
+            <label for='DELETE'>GET</label>
+            <input id='button' name='DELETE' type="radio" value="DELETE" onChange={this.handleButton} />
           </div>
         </form>
 
-        <div id='urlMethod'>
+        {/* <div id='urlMethod'>
           <p>{this.state.method} &nbsp; &nbsp; &nbsp; {this.state.url} </p>
-        </div>
+        </div> */}
       </div>
     );
   }

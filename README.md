@@ -1,78 +1,59 @@
-# Lab: Class 26
+# RESTy System
 
 ## Index
 
-- [LAB - Component Based UI](#LAB---Component-Based-UI)
-- [Business Requirements](#Business-Requirements)
-- [Phase 1 Requirements](#Phase-1-Requirements)
-- [Technical Requirements / Notes](#Technical-Requirements-/-Notes)
-- [The lab tree](#The-lab-tree)
-- [Testing](#Testing)
-- [More about the Lab](#More-about-the-Lab)
-  - [Author](#Author)
-  - [Github](#Github)
-  - [UML](#UML)
-  - [Tests](#Tests)
-  - [Tests](#App)
-- [Author Links](#Author-Links)
+- [Lab 26 , v1.1](./public/assets/labVersions/lab26.md)
+- [Lab 27 , v1.2](./public/assets/labVersions/lab27.md)
+- [RESTy System Overview](#RESTy)
 
 ---
 
-# LAB - Component Based UI
+# RESTy
 
-**RESTy Phase 1:** Begin work on the RESTy API testing application
-
-## Before you begin
-
-Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
-
-Create a UML diagram of the **RESTy** system on a whiteboard before you start
-
-> Create a new repository for this project, called 'resty' and work in a branch called 'base'
+ A browser based API testing tool
 
 ## Business Requirements
 
-Refer to the [RESTy System Overview](../../apps-and-libraries/resty/README.md) for a complete review of the application, including Business and Technical requirements along with the development roadmap.
+Our application will be an API testing tool that can be run in any browser, allowing a user to easily interact with APIs in a familiar interface.
 
-## Phase 1 Requirements
+![RESTy](https://codefellows.github.io/code-401-javascript-guide/curriculum/apps-and-libraries/resty/resty.png)
 
-Today, we begin the first of a 4-Phase build of the RESTy application, written in React. In this first phase, our goal is to setup the basic scaffolding of the application, with intent being to add more functionality to the system as we go. This initial build sets up the file structure so that we can progressively build this application in a scalable manner
+### The core requirements and functionality are as follows
 
-The following user/developer stories detail the major functionality for this phase of the project.
+- Simple, intuitive user interface
+  - A form where a user:
+    - Enters a REST API Endpoint (URI)
+    - Selects the REST Method to use (get, post, put, delete)
+    - For put and post, allow the user to enter JSON to be used as the body for the request
+    - A button to initiate the request
+  - An output section which:
+    - Displays a spinner to indicate a request is in process
+    - Once a request is complete:
+    - Hide the spinner
+    - Display a well formatted view of the API response in 2 sections
+      - Headers
+      - Body
+  - A history section which:
+    - Shows a list of all unique, successful requests
+    - Allows a user to click or select one to re-populate the form so they can repeat the request
 
-- As a user, I expect an easy to read and understand user interface so that I can use the application intuitively
-- As a user, I want to enter the URL to a REST API and select the REST method to use to access it
-- As a user, I want visual confirmation that my entries and selections are valid so that I have confidence the application will be able to fetch the API data that I've requested
+### Technical Requirements
 
-And as developers, here are the high level development tasks that address the above end user requirements
+The application will be created with the following overall architecture and methodologies
 
-- Create a visually appealing site with a Header, Footer, and a large content area
-- Create a form that asks for a URL
-- Create buttons that let the user choose from the REST methods (get, post, put, delete)
-- When the form is filled out, and the button is clicked, display the URL and the method chosen
+1. React
+1. ES6 Classes
+1. Shared Component State
+1. Local Storage for storing request history
+1. Superagent or Axios for performing API Requests
+1. SASS for styling
+    - Global Theme
+    - Component specific CSS where possible
+1. Test Driven Development, using Jest
+    - Tests will be runnable locally
+1. Deployment to GitHub Pages using an Action
 
-## Technical Requirements / Notes
-
-Create the RESTy application as follows:
-
-- Begin with creating your application using `create-react-app`
-- Write an `App` component that serves as the container for all sub-components of this application
-  - The app should import an `.scss` file to serve as the base design for the site
-  - Import and render `Header`, `Footer`, and `Form` components from other files using ES6 `import` syntax
-- The `<Header>` component should use it's own `.scss` file for styling
-- The `<Footer>` component should use it's own `.scss` file for styling
-- The `<Form>` component should:
-  - Use it's own `.scss` file for styling
-  - Accept user input for a URL and store it in state
-  - Allow the user to choose a method and store it in state
-    - This can be done with radio buttons or clickable elements
-  - Display the user's choices on screen in a separate `<div>` or `<section>` under the form
-
----
-
-**[⬆ Back to Index](#index)**
-
-#### **The lab tree**
+### Application Structure (proposed)
 
 ```
 ├── .gitignore
@@ -106,62 +87,30 @@ Create the RESTy application as follows:
 └── package.json
 ```
 
-**[⬆ Back to Index](#index)**
+### Development Process, Milestones
 
-#### **Testing**
+1. Phase 1: Application Setup
+    - Basic React Application
+    - Scaffolding
+    - Basic State
+    - Rendering
 
-- > NOTE: For this assignment, **testing is not required**
+1. Phase 2: Testing and Deployment
+    - Testing of React components and applications
+    - Uses best practices for testing Behaviors and Acceptance Criteria
+    - Integrates with an online CI framework
+    - Deploy to GitHub Pages, Netlify, and/or AWS
 
-**[⬆ Back to Index](#index)**
+1. Phase 3: State and Props
+    - Create multiple components to handle each aspect of the Application
+    - Sharing state and behaviors between components
+    - Basic layout and styling
 
-### **More about the Lab**
-
-- #### Author
-
-  - Shady Khaled
-
-  **[⬆ Back to Index](#index)**
-
-- #### Github
-
-  - For the repo ***resty*** clicks => [here](https://github.com/shadykh/resty).
-  - Pull Requests:
-    - [https://github.com/shadykh/resty/pull/1](https://github.com/shadykh/resty/pull/1)
-
-**[⬆ Back to Index](#index)**
-
-- #### UML
-
-  - ![UML](./public/assets/uml.PNG)
-
-**[⬆ Back to Index](#index)**
-
-- #### Tests
-
-- > NOTE: For this assignment, **testing is not required**
-
-**[⬆ Back to Index](#index)**
-
-- #### App
-
-  - run `npm start`
-
-- I did this lab with help of
-  - dependencies
-    - node-sass
-    - react
-    - react-dom
-    - react-scripts
-    - web-vitals
-  - framework
-    - Node.js
-    - React
-  - tools
-    - Github.
-    - VsCode.
-    - Ubuntu.
-
-**[⬆ Back to Index](#index)**
+1. Phase 4: Fit and Finish
+    - Incorporate the spinner, using conditional rendering
+    - App is Fully Tested
+    - App is Fully Documented
+    - RESTy is Deployed and publicly available
 
 <br>
 
