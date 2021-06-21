@@ -12,10 +12,32 @@ form {
 
 }
 
-#urlMethod{
-    width: 50%;
+.results{
     margin: 28px auto;
-    justify-content: space-around;
-    text-align: center;
     border: 2px solid gray;
 }
+#button{
+    background-color: #3f423f;
+    border: none;
+    color: white;
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#button:active{
+    background-color: #9b9b9b;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
