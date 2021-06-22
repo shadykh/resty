@@ -1,0 +1,21 @@
+.loader {
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+#img{
+    width: 100%;
+}
+.results{
+    float: right;
+    margin: 28px auto;
+    border: 2px solid gray;
+}
