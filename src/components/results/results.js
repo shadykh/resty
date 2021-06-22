@@ -1,5 +1,5 @@
 import React from 'react';
-import {highlight} from 'cli-highlight';
+import ReactJson from 'react-json-view';
 
 const Results = (props) => {
 
@@ -14,7 +14,7 @@ const Results = (props) => {
         return (
             <section className="results">
               <ul>
-                <pre>{highlight(JSON.stringify(props, null, 4))}</pre>
+                <pre><ReactJson src={props} /></pre>
               </ul>
             </section>
           )
