@@ -28,12 +28,12 @@ class Form extends React.Component {
     console.log(raw);
     console.log('--------------raw-------------------');
     let data = await raw.json();
-    let count = data.count;
+    //let count = data.count;
 
     console.log('-------------data--------------------');
     console.log(data);
     console.log('--------------data-------------------');
-    let results = data.results;
+    //let results = data.results;
     this.props.handler(data);
 
   }
