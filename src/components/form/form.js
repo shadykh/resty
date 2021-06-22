@@ -23,18 +23,12 @@ class Form extends React.Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    let raw = await fetch(this.state.url);
-    console.log('-------------raw--------------------');
-    console.log(raw);
-    console.log('--------------raw-------------------');
-    let data = await raw.json();
-    //let count = data.count;
+    let urlWithMethod = {
+      url: this.state.url,
+      method: this.state.method
+    }
 
-    console.log('-------------data--------------------');
-    console.log(data);
-    console.log('--------------data-------------------');
-    //let results = data.results;
-    this.props.handler(data);
+    this.props.handler(urlWithMethod);
 
   }
 
@@ -48,20 +42,17 @@ class Form extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <div id='url'><label id='labelId'>
             URL:
             <input type="text" placeholder='Please enter the URL !!' required onChange={this.handleChange} />
           </label>
-          <button id='button' type="submit"  > Go! </button>
-          <div>
-            <label for='GET'>GET</label>
-            <input id='button' name='GET' type="radio" value="GET" checked onChange={this.handleButton} />
-            <label for='POST'>POST</label>
-            <input id='button' name='POST' type="radio" value="POST" onChange={this.handleButton} />
-            <label for='PUT'>PUT</label>
-            <input id='button' name='PUT' type="radio" value="PUT" onChange={this.handleButton} />
-            <label for='DELETE'>GET</label>
-            <input id='button' name='DELETE' type="radio" value="DELETE" onChange={this.handleButton} />
+            <button id='goBtn'>{this.props.prompt}</button>
+          </div>
+          <div id='btnsDiv'>
+            <button className={`method-${this.state.method === 'GET'}`} onClick={this.handleButton} value='GET'>GET</button>
+            <button className={`method-${this.state.method === 'PUT'}`} onClick={this.handleButton} value='PUT'>PUT</button>
+            <button className={`method-${this.state.method === 'POST'}`} onClick={this.handleButton} value='POST'>POST</button>
+            <button className={`method-${this.state.method === 'DELETE'}`} onClick={this.handleButton} value='DELETE'>DELETE</button>
           </div>
         </form>
 

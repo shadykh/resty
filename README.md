@@ -4,6 +4,8 @@
 
 - [Lab 26 , v1.1](./public/assets/labVersions/lab26.md)
 - [Lab 27 , v1.2](./public/assets/labVersions/lab27.md)
+- [Lab 28 , v1.3](./public/assets/labVersions/lab28.md)
+- [Lab 29 , v1.4](./public/assets/labVersions/lab29.md)
 - [RESTy System Overview](#RESTy)
 
 ---
