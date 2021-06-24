@@ -1,9 +1,11 @@
 import React from 'react';
 import axios from 'axios';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Headers from './components/header/header.js';
 import Form from './components/form/form.js';
 import History from './components/history/history.js';
 import Results from './components/results/results.js';
+import Help from './components/help/help.js'
 import Footer from './components/footer/footer.jsx';
 import './app.scss'
 
@@ -31,7 +33,6 @@ class App extends React.Component {
   }
 
   handleForm = async (query) => {
-
     this.toggleLoading();
     const raw = await axios(query);
     const data = raw.data;
@@ -50,6 +51,7 @@ class App extends React.Component {
   }
 
   handleHistory = async (query) => {
+    console.log('query',query);
     await this.handleForm(query);
     this.setState({ history: this.state.history.splice(0, this.state.history.length - 1) });
   }
@@ -58,15 +60,26 @@ class App extends React.Component {
   render() {
 
     return (
-      <>
-        <Headers />
-        <Form prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
-        <div id='resultDiv'>
-          <History history={this.state.history} handler={this.handleHistory} />
-          <Results url={this.state.url} method={this.state.method} headers={this.state.headers} count={this.state.count} results={this.state.results} loading={this.state.loading} loaded={this.state.loaded} />
-        </div>
-        <Footer />
-      </>
+      <BrowserRouter>
+          <Headers />
+          <Switch>
+            <Route exact path="/">
+              <Form prompt="Go!" toggleLoading={this.toggleLoading} handler={this.handleForm} />
+              <div id='resultDiv'>
+                <History history={this.state.history} handler={this.handleHistory} />
+                <Results url={this.state.url} method={this.state.method} headers={this.state.headers} count={this.state.count} results={this.state.results} loading={this.state.loading} loaded={this.state.loaded} />
+              </div>
+            </Route>
+            <Route path="/history">
+              <History history={this.state.history} handler={this.handleHistory} />
+              <Results results={this.state.results} loading={this.state.loading} loaded={this.state.loaded} />
+            </Route>
+            <Route path="/help">
+              <Help />
+            </Route>
+          </Switch>
+          <Footer />
+      </BrowserRouter>
     );
 
   }
