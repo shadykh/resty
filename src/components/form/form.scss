@@ -1,71 +1,91 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-$font-family: 'Josefin Sans', sans-serif;
+$font-family: 'Josefin Sans',
+sans-serif;
 
 form {
-    
-    font-family: $font-family;
-    text-align: center;
-    width: 50%;
-    margin: 28px auto;
-    justify-content: space-around;
-    text-align: center;
+
+  font-family: $font-family;
+  text-align: center;
+  width: 50%;
+  margin: 28px auto;
+  justify-content: space-around;
+  text-align: center;
 
 }
 
-button{
-    width: 90%;
-    display: block;
-    
-    .queryMethod {
-      word-wrap: break-word;
-      border-radius:  3px;
-      padding-right: 1rem;
-    }
+button {
+  width: 90%;
+  display: block;
+
+  .queryMethod {
+    word-wrap: break-word;
+    border-radius: 3px;
+    padding-right: 1rem;
+  }
+}
+
+button {
+  padding: 8px 0px;
+  margin: auto;
+  border: none;
+  background-color: #fff;
+
+  &:hover {
+    background-color: #3257ff;
+    color: #fff;
+    cursor: pointer;
   }
 
-  button {
-    padding: 8px 0px;
-    margin: auto;
-    border: none;
-    background-color: #fff;
-    &:hover {
-      background-color: #3257ff;
-      color: #fff;
-      cursor: pointer;
-    }
-    &.method-true {
-      background-color: #3257ff;
-      color: #fff;
-    }
+  &.method-true {
+    background-color: #3257ff;
+    color: #fff;
   }
+}
 
-  input[type=text] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    border: none;
-    background-color: #4b66ff;
-    color: white;
-  }
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  background-color: #4b66ff;
+  color: white;
+}
 
-  #url{
-    display: flex;
-    margin: 2px 2px;
-    padding: 2px 2px;
-    align-items: center;
-  }
-  #labelId{
-    display: flex;
-    align-items: center;
-  }
-  #goBtn{
-    width: 14%;
-    border: 2px solid blue;
-    padding: 19px 0;
-    border-radius: 41px;
-  }
-  #btnsDiv{
-    padding: 2px 2px;
-    margin: 14px 2px;
+#url {
+  display: flex;
+  margin: 2px 2px;
+  padding: 2px 2px;
+  align-items: center;
+}
+
+#labelId {
+  display: flex;
+  align-items: center;
+}
+
+#goBtn {
+  width: 14%;
+  border: 2px solid blue;
+  padding: 19px 0;
+  border-radius: 41px;
+}
+
+#btnsDiv {
+  padding: 2px 2px;
+  margin: 14px 2px;
+}
+
+#data {
+  display: flex;
+  margin: 2px 2px;
+  padding: 2px 2px;
+  align-items: center;
+  width: 445px;
+  height: 45px;
+}
+::placeholder {
+  font-size: 1em;
+  color: rgb(255, 255, 255);
+  padding: 5px;
 }
