@@ -158,7 +158,7 @@ Update the RESTy application as follows:
 
   - For the repo ***resty*** clicks => [here](https://github.com/shadykh/resty).
   - Pull Requests:
-    - [https://github.com/shadykh/resty/pull/6](https://github.com/shadykh/resty/pull/6)
+    - [https://github.com/shadykh/resty/pull/9](https://github.com/shadykh/resty/pull/9)
 
 **[⬆ Back to Index](#index)**
 
